@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/air-ancillary-services/air-ancillary-services.iml" filepath="$PROJECT_DIR$/air-ancillary-services/air-ancillary-services.iml" />
+      <module fileurl="file://$PROJECT_DIR$/air-common/air-common.iml" filepath="$PROJECT_DIR$/air-common/air-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/air-config/air-config.iml" filepath="$PROJECT_DIR$/air-config/air-config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/air-eureka-server/air-eureka-server.iml" filepath="$PROJECT_DIR$/air-eureka-server/air-eureka-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/air-gateway/air-gateway.iml" filepath="$PROJECT_DIR$/air-gateway/air-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/air-interface/air-interface.iml" filepath="$PROJECT_DIR$/air-interface/air-interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/air-job/air-job.iml" filepath="$PROJECT_DIR$/air-job/air-job.iml" />
+      <module fileurl="file://$PROJECT_DIR$/air-parent.iml" filepath="$PROJECT_DIR$/air-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/air-pojo/air-pojo.iml" filepath="$PROJECT_DIR$/air-pojo/air-pojo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/air-space-service/air-space-service.iml" filepath="$PROJECT_DIR$/air-space-service/air-space-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/air-space-web/air-space-web.iml" filepath="$PROJECT_DIR$/air-space-web/air-space-web.iml" />
+    </modules>
+  </component>
+</project>

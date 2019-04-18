@@ -1,0 +1,61 @@
+server:
+  port: 9060
+spring:
+  application:
+    name: air-config
+  profiles:
+    active:
+    - local
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
+ribbon:  
+  ReadTimeout: 60000  
+  ConnectTimeout: 60000
+
+---
+spring:
+  cloud:
+    config:
+      server:
+        svn:
+          uri: https://USER-20190325BJ/svn/springcloudConfig/
+          username: root
+          password: root
+        default-label: config
+        git:
+          uri:
+          username:
+          password:
+  profiles:
+    active: subversion
+      #enabled: true
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://peer1:9000/eureka/
+---
+spring:
+  profiles: test
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://peer1:9000/eureka/,http://peer2:9002/eureka/
+---
+spring:
+  profiles: pro
+eureka:
+  instance:
+    hostname: 172.21.32.17
+  client:
+    serviceUrl:
+      defaultZone: http://peer1:9000/eureka/,http://peer2:9002/eureka/
+        

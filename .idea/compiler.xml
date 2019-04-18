@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="air-ancillary-services" />
+        <module name="air-common" />
+        <module name="air-config" />
+        <module name="air-eureka-server" />
+        <module name="air-gateway" />
+        <module name="air-interface" />
+        <module name="air-job" />
+        <module name="air-pojo" />
+        <module name="air-space-service" />
+        <module name="air-space-web" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="air-ancillary-services" target="1.8" />
+      <module name="air-common" target="1.8" />
+      <module name="air-config" target="1.8" />
+      <module name="air-eureka-server" target="1.8" />
+      <module name="air-gateway" target="1.8" />
+      <module name="air-interface" target="1.8" />
+      <module name="air-job" target="1.8" />
+      <module name="air-parent" target="1.8" />
+      <module name="air-pojo" target="1.8" />
+      <module name="air-space-service" target="1.8" />
+      <module name="air-space-web" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

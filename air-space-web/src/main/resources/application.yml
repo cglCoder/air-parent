@@ -1,0 +1,42 @@
+server:
+  port: 8114
+  max-http-header-size: 4048576
+thymeleaf:
+   cache: false
+   mode: html
+spring:
+  application:
+    name: air-space-web
+  profiles:
+    active:
+    - local
+feign:
+  httpclient:
+    connection-timeout: 5000
+---
+spring:
+ profiles: test
+eureka:
+  instance:
+    hostname: 118.89.225.162
+  client:
+    serviceUrl:
+      defaultZone: http://XXXX:8761/eureka/
+---
+spring:
+ profiles: local
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://peer1:9000/eureka/,http://peer2:9002/eureka/
+---
+spring:
+ profiles: pro
+eureka:
+  instance:
+    hostname: 172.21.32.16
+  client:
+    serviceUrl:
+      defaultZone: http://XXXX:8761/eureka/

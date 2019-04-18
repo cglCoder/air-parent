@@ -1,0 +1,40 @@
+server:
+  port: 9000
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+  server:
+    enable-self-preservation: false
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds:10000  
+endpoints:
+ shutdown:
+  enabled: true
+  path: /service.shutdown
+management:
+ security:
+  enabled: true
+ port: 8761
+ address: 127.0.0.1
+ context-path: /admin
+security:
+ basic:
+  enabled: true
+  path: /admin
+ user:
+  name: root
+  password: 123456
+  # curl -X POST -u root:123456 http://127.0.0.1:8761/admin/service.shutdown  
+spring:
+  application:
+    name: air-eureka-server
+
+    
+    
+                

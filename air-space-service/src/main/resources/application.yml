@@ -1,0 +1,63 @@
+server:
+  port: 8011
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
+            
+spring:
+ application:
+   name: air-space-service
+ profiles:
+   active:
+   - local
+---
+spring:
+ profiles: pro
+ datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://172.21.32.8/air?characterEncoding=utf-8
+    username: hissair
+    password: zeepson@#2018!   
+eureka:
+  instance:
+    hostname: 172.21.32.13
+  client:
+    serviceUrl:
+      defaultZone: http://172.21.32.3:8761/eureka/
+---
+spring:
+  profiles: local
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/demo?characterEncoding=utf-8
+    username: root
+    password: root
+    type: com.alibaba.druid.pool.DruidDataSource
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://peer1:9000/eureka/,http://peer2:9002/eureka/
+---
+spring:
+  profiles: test
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://118.89.225.162/air?characterEncoding=utf-8
+    username: root
+    password: hissair@123456   
+eureka:
+  instance:
+    hostname: 118.89.225.162
+  client:
+    serviceUrl:
+      defaultZone: http://118.89.225.162:9000/eureka/

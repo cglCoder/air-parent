@@ -1,0 +1,58 @@
+server:
+  port: 9070
+spring:
+  application:
+    name: air-ancillary-services
+  profiles:
+    active:
+    - local
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
+ribbon:  
+  ReadTimeout: 60000  
+  ConnectTimeout: 60000
+---
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://peer1:9000/eureka/
+spring:
+  profiles: local
+  redis:
+    cluster:
+      nodes: 127.0.0.1:6379,127.0.0.1:6380,127.0.0.1:6381,127.0.0.1:6382,127.0.0.1:6383,127.0.0.1:6384
+    pool:
+      max-active: 8
+      min-idle: 1
+      max-wait: 5000
+      max-idle: 8
+    timeout: 60000
+  data:
+    mongodb:
+      uri: mongodb://127.0.0.1:27017/channel
+---
+spring:
+  profiles: test
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://peer1:9000/eureka/,http://peer2:9002/eureka/
+---
+spring:
+  profiles: pro
+eureka:
+  instance:
+    hostname: 172.21.32.17
+  client:
+    serviceUrl:
+      defaultZone: http://peer1:9000/eureka/,http://peer2:9002/eureka/
+        

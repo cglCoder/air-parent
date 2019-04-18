@@ -1,0 +1,47 @@
+spring:
+  application:
+    name: air-eureka-server
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds:10000
+---
+spring:
+  profiles: peer1  #指定 profiles为 peer1
+server:
+  port: 9000
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://127.0.0.1:9002/eureka
+  server:
+    enable-self-preservation: false
+  instance:
+    prefer-ip-address: true #将自己的ip注册到eureka服务器
+    hostname: peer1  #声明是节点1
+---
+spring:
+  profiles: peer2  #指定 profiles为 peer1
+server:
+  port: 9002
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://127.0.0.1:9000/eureka
+  server:
+    enable-self-preservation: false
+  instance:
+    prefer-ip-address: true #将自己的ip注册到eureka服务器
+    hostname: peer2  #声明是节点2
+#构建高可用集群 命令
+#nohup java -jar air-eureka-server-1.0-SNAPSHOT.jar --spring.profiles.active=peer1 &
+#nohup java -jar air-eureka-server-1.0-SNAPSHOT.jar --spring.profiles.active=peer2 &
+
+
